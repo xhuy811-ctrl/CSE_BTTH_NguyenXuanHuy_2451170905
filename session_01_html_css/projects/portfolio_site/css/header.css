@@ -1,0 +1,78 @@
+/* ==========================================================================
+   1. STICKY HEADER (DESKTOP)
+   ========================================================================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+header nav a {
+    margin-left: 2rem;
+    color: var(--color-text);
+    font-weight: 500;
+    text-decoration: none; /* Bỏ gạch chân mặc định của thẻ a */
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Ẩn ẩn checkbox và icon hamburger mặc định ở bản Desktop */
+.menu-toggle, 
+.menu-icon {
+    display: none;
+}
+
+/* ==========================================================================
+   2. RESPONSIVE MOBILE MENU (CSS-ONLY)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Hiển thị icon menu trên mobile */
+    .menu-icon {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--color-dark);
+        user-select: none; /* Ngăn bôi đen icon khi bấm nhanh nhiều lần */
+    }
+
+    /* Cấu hình lại thanh điều hướng thành menu xổ xuống */
+    header nav {
+        display: none; /* Ẩn menu mặc định */
+        position: absolute;
+        top: 100%; /* Xuất hiện ngay sát mép dưới của header */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Định hình lại các liên kết trong menu dọc */
+    header nav a {
+        margin: 1rem 0; /* Khoảng cách trên dưới giữa các link */
+        margin-left: 0;  /* QUAN TRỌNG: Reset lại margin-left 2rem ở desktop để chữ không bị lệch phải */
+    }
+
+    /* KỸ THUẬT CHECKBOX HACK: 
+       Khi checkbox (.menu-toggle) được CHECKED, tìm phần tử anh em (~ nav) và hiển thị lên */
+    .menu-toggle:checked ~ nav {
+        display: flex; 
+    }
+}
