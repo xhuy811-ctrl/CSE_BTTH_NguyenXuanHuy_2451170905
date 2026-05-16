@@ -29,3 +29,13 @@
     font-weight: 300;
     margin-bottom: 1rem;
 }
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột trên mobile */
+    }
+    
+    .about-image img {
+        width: 200px;
+        height: 200px;
+    }
+}
