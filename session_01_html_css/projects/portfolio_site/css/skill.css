@@ -1,0 +1,62 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Background chuyển màu mượt mà theo góc 135 độ */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800; /* Tăng độ dày chữ để trông hiện đại hơn */
+}
+
+.hero h1 .highlight {
+    color: var(--color-accent);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block; /* QUAN TRỌNG: Giúp padding và transform hoạt động chuẩn xác */
+    text-decoration: none; /* Bỏ gạch chân mặc định của thẻ a */
+    background: white;
+    color: var(--color-primary);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* QUAN TRỌNG: Tạo hiệu ứng mượt mà khi di chuột vào và cấu trúc hover mượt mà */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Đổi từ 1.1 xuống 1.05 để nút không bị phóng quá to gây vỡ chữ */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng khi người dùng click chuột vào nút (Nhấn xuống) */
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem; /* Thu nhỏ nhẹ subtitle trên mobile */
+    }
+}
